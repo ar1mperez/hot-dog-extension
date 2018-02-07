@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "I Just Wanted a Pictured of a God Damn Hot Dog",
+  "description": "Gets a picture of a god damn hot dog",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "content_scripts": [
+   {
+     "matches": ["http://*/*", "https://*/*"],
+     "js": ["myscript.js"]
+   }
+],
+  "permissions": [
+   "activeTab"
+   ]
+}
