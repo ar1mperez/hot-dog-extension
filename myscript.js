@@ -2,13 +2,11 @@
 
 
 chrome.storage.sync.get('state', function(data) {
-    console.log("Started from the bottom");
     if (data.state == null) {
         var save = {};
         save['state'] = 'on';
 
         chrome.storage.sync.set(save, function() {
-            console.log('Settings saved');
         });
 
     }
@@ -41,10 +39,10 @@ chrome.storage.sync.get('state', function(data) {
 
 document.addEventListener('DOMNodeInserted', function(){
     chrome.storage.sync.get('state', function(data) {
-        if (data.state == null) {
-            console.log("FAKKKK");
-        }
-        console.log(data.state);
+        //if (data.state == null) {
+            //console.log("FAKKKK");
+        //}
+        //console.log(data.state);
         if (data.state === 'on') {
             var mylist = document.querySelectorAll("img");
             var j;
@@ -66,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             //do something, removing the script or whatever
             } else {
                 chrome.storage.sync.set({state: 'on'});
-                //inject your script
             }
             chrome.tabs.reload(function(){});
         });
